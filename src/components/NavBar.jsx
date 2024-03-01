@@ -1,10 +1,16 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Link from "next/link";
 
 export default function NavBar() {
+  useEffect(() => {
+    require("bootstrap/dist/js/bootstrap.bundle.js");
+  }, []);
   return (
     <div>
-      <nav className=" navbar bg-body-tertiary fixed-top ">
+      <nav className=" navbar fixed-top ">
         <div className="container-fluid" style={{ maxWidth: "80em" }}>
           <a className="navbar-brand fw-bold" href="#">
             PORTFOLIO
@@ -39,14 +45,18 @@ export default function NavBar() {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
+                  <Link
+                    className="nav-link active"
+                    aria-current="page"
+                    href="/"
+                  >
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/about">
+                  <Link className="nav-link" href="/about">
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item dropdown">
                   <a

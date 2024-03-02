@@ -4,73 +4,7 @@ import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import st from "./page.module.css";
 import Image from "next/image";
-
-const imgs = [
-  "js.svg",
-  "ts.svg",
-  "jest.svg",
-  "mongo.svg",
-  "bootstrap.svg",
-  "node.svg",
-  "github.svg",
-  "react.svg",
-  "docker.svg",
-  "zod.svg",
-  "jwt.svg",
-  "next2.svg",
-];
-
-function Card() {
-  return (
-    <div className="container mt-5 ">
-      <div className="row ">
-        {imgs.map((img) => (
-          <div key={img} className="col-md-3 mb-4 ">
-            <div className="card h-100 ">
-              <Image
-                className=" card-img-bottom"
-                src={img}
-                alt="..."
-                height={80}
-                width={80}
-                style={{ height: "auto", width: "auto" }}
-              />
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function Skills() {
-  return (
-    <div
-      className="container"
-      style={{ marginTop: "90px", textAlign: "justify", textIndent: "3em" }}
-    >
-      <div>
-        <h1>
-          <span className="bg-dark-subtle text-white"></span> Skills that give{" "}
-          <span>
-            <span style={{ color: "yellow" }}>C</span>
-            <span style={{ color: "blue" }}>O</span>
-            <span style={{ color: "red" }}>L</span>
-            <span style={{ color: "green" }}>O</span>
-            <span style={{ color: "fuchsia" }}>R</span>
-          </span>{" "}
-          to my world.
-        </h1>
-        <div className="fw-bold my-4 ">
-          HTML5, CSS3, JAVASCRIPT, TYPESCRIPT, JAVA, REACT, NEXT, ANGULAR, NODE,
-          EXPRESS, REDUX, SPRINT BOOT, DOCKER, MONGODB, MONGOOSE, MYSQL,
-          POSTGRESQL, SEQUELIZE, DOCKER, GIT, JWT, BCRYPT, BOOTSTRAP, TAILWIND,
-          JEST.
-        </div>
-      </div>
-    </div>
-  );
-}
+import { Skills, Portfolio } from "../components/index.js";
 
 export default function Home() {
   useEffect(() => {
@@ -96,6 +30,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <div className="container card bg-dark-subtle my-5">
         <img src="/prog.png" className="card-img" alt="..." height={600} />
         <div className="card-img-overlay">
@@ -109,7 +44,14 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <Skills />
+
+      <section style={{ marginTop: "250px" }}>
+        <Skills />
+      </section>
+
+      <section style={{ marginTop: "250px" }}>
+        <Portfolio />
+      </section>
     </>
   );
 }

@@ -6,18 +6,18 @@ import st from "./page.module.css";
 import Image from "next/image";
 
 const imgs = [
-  "/js.svg",
-  "/ts.svg",
-  "/jest.svg",
-  "/mongo.svg",
-  "/bootstrap.svg",
+  "js.svg",
+  "ts.svg",
+  "jest.svg",
+  "mongo.svg",
+  "bootstrap.svg",
   "node.svg",
-  "/github.svg",
-  "/react.svg",
-  "/docker.svg",
-  "/zod.svg",
-  "/jwt.svg",
-  "/next2.svg",
+  "github.svg",
+  "react.svg",
+  "docker.svg",
+  "zod.svg",
+  "jwt.svg",
+  "next2.svg",
 ];
 
 function Card() {
@@ -26,13 +26,14 @@ function Card() {
       <div className="row ">
         {imgs.map((img) => (
           <div key={img} className="col-md-3 mb-4 ">
-            <div className="card h-100 border-1">
+            <div className="card h-100 ">
               <Image
-                className=" card-img-bottom   "
+                className=" card-img-bottom"
                 src={img}
                 alt="..."
                 height={80}
                 width={80}
+                style={{ height: "auto", width: "auto" }}
               />
             </div>
           </div>
@@ -50,11 +51,23 @@ function Skills() {
     >
       <div>
         <h1>
-          <span className="bg-dark-subtle text-white">Skills that give</span>{" "}
-          <span className="text-primary">color</span> to my world.
+          <span className="bg-dark-subtle text-white"></span> Skills that give{" "}
+          <span>
+            <span style={{ color: "yellow" }}>C</span>
+            <span style={{ color: "blue" }}>O</span>
+            <span style={{ color: "red" }}>L</span>
+            <span style={{ color: "green" }}>O</span>
+            <span style={{ color: "fuchsia" }}>R</span>
+          </span>{" "}
+          to my world.
         </h1>
+        <div className="fw-bold my-4 ">
+          HTML5, CSS3, JAVASCRIPT, TYPESCRIPT, JAVA, REACT, NEXT, ANGULAR, NODE,
+          EXPRESS, REDUX, SPRINT BOOT, DOCKER, MONGODB, MONGOOSE, MYSQL,
+          POSTGRESQL, SEQUELIZE, DOCKER, GIT, JWT, BCRYPT, BOOTSTRAP, TAILWIND,
+          JEST.
+        </div>
       </div>
-      <Card />
     </div>
   );
 }

@@ -13,8 +13,8 @@ export default function NavBar() {
     <div>
       <nav className="navbar fixed-top">
         <div className="container-fluid" style={{ maxWidth: "80em" }}>
-          <Link className="navbar-brand fw-bold text-white bg-dark-subtle  " href="/">
-            PORTFOLIO
+          <Link className="navbar-brand fw-bold text-white"  href="/">
+            <div className="btn btn-outline-secondary   ">PORTFOLIO</div>
           </Link>
           <button
             className="navbar-toggler"

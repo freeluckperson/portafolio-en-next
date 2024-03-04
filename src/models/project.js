@@ -5,7 +5,7 @@ const projectSchema = new Schema(
     title: String,
     description: String,
     image: String,
-    repository: String,
+    url: String,
     deploy: String,
   },
   { timestamps: true }

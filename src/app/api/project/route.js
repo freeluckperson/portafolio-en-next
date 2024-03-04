@@ -2,13 +2,17 @@ import connectDB from "@/libs/mongoDB";
 import Project from "@/models/project";
 import { NextResponse } from "next/server";
 
+// ROUTE http://localhost:3000/api/project
 export async function GET(request) {
   try {
     await connectDB();
 
     const allProjects = await Project.find();
-    if (!allProjects)
-      return NextResponse.json("No projects found", { status: 400 });
+    if (!allProjects || !allProjects.length)
+      return NextResponse.json(
+        { message: "No projects found" },
+        { status: 400 }
+      );
 
     return NextResponse.json(allProjects, { status: 200 });
   } catch (error) {
@@ -19,16 +23,15 @@ export async function GET(request) {
 export async function POST(request) {
   try {
     await connectDB();
-    const { title, description, image, repository, deploy } =
-      await request.json();
+    const { title, description, image, url, deploy } = await request.json();
 
-    const newProject = new Project({title,description,image,repository,deploy});
+    const newProject = new Project({ title, description, image, url, deploy });
 
     if (
-      [title, description, image, repository, deploy].some(
+      [title, description, image, url, deploy].some(
         (field) => typeof field !== "string"
       ) ||
-      [title, description, image, repository, deploy].some(
+      [title, description, image, url, deploy].some(
         (field) => field.trim() === ""
       )
     )
